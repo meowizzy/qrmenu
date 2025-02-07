@@ -1,0 +1,871 @@
+<!doctype html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Наше меню</title>
+    <link rel="icon" type="image/png" sizes="16x16" href="./assets/favicon.ico">
+<link href="css/bundle.css?ver=1738941652723" rel="stylesheet"></head>
+<body>
+    <svg style="position: absolute; top: -1000px; left: -1000px; pointer-events: none; opacity: 0">
+        <symbol id="location">
+            <g>
+                <path d="M8 8.5C9.10457 8.5 10 7.60457 10 6.5C10 5.39543 9.10457 4.5 8 4.5C6.89543 4.5 6 5.39543 6 6.5C6 7.60457 6.89543 8.5 8 8.5Z" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M13 6.5C13 11 8 14.5 8 14.5C8 14.5 3 11 3 6.5C3 5.17392 3.52678 3.90215 4.46447 2.96447C5.40215 2.02678 6.67392 1.5 8 1.5C9.32608 1.5 10.5979 2.02678 11.5355 2.96447C12.4732 3.90215 13 5.17392 13 6.5Z" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/>
+            </g>
+        </symbol>
+        
+        <symbol id="wifi">
+            <g>
+                <path d="M5.80737 10.3787C6.39781 9.8147 7.1829 9.5 7.9994 9.5C8.81591 9.5 9.601 9.8147 10.1914 10.3787" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M3.68604 8.25736C4.83914 7.13074 6.38727 6.5 7.99939 6.5C9.6115 6.5 11.1596 7.13074 12.3127 8.25736" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M1.56641 6.13604C3.28149 4.44684 5.59217 3.5 7.99943 3.5C10.4067 3.5 12.7174 4.44684 14.4325 6.13604" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M8 13.25C8.41421 13.25 8.75 12.9142 8.75 12.5C8.75 12.0858 8.41421 11.75 8 11.75C7.58579 11.75 7.25 12.0858 7.25 12.5C7.25 12.9142 7.58579 13.25 8 13.25Z" fill="currentColor"/>
+            </g>
+        </symbol>
+        
+        <symbol id="phone">
+            <g>
+                <path d="M5.77977 7.80028C6.29842 8.86062 7.15792 9.71621 8.2206 10.23C8.29835 10.2669 8.38436 10.2828 8.47015 10.2763C8.55595 10.2699 8.63857 10.2411 8.7099 10.193L10.2746 9.14961C10.3438 9.10347 10.4235 9.07531 10.5063 9.0677C10.5891 9.0601 10.6725 9.07327 10.749 9.10604L13.6763 10.3606C13.7757 10.4028 13.8588 10.4763 13.9128 10.5698C13.9669 10.6633 13.9892 10.7719 13.9762 10.8791C13.8837 11.6031 13.5304 12.2686 12.9826 12.7509C12.4347 13.2332 11.7299 13.4993 11 13.4993C8.74566 13.4993 6.58365 12.6038 4.98959 11.0097C3.39553 9.41568 2.5 7.25367 2.5 4.99933C2.50004 4.26944 2.76612 3.56459 3.24843 3.01675C3.73073 2.46892 4.39618 2.11567 5.12019 2.02314C5.22745 2.01016 5.33602 2.03239 5.42955 2.08648C5.52307 2.14057 5.59649 2.22359 5.63873 2.32303L6.89439 5.2529C6.92687 5.32868 6.9401 5.41132 6.93291 5.49346C6.92572 5.57559 6.89833 5.65468 6.85318 5.72366L5.81341 7.3124C5.76608 7.38387 5.7381 7.46639 5.73221 7.5519C5.72631 7.63742 5.7427 7.723 5.77977 7.80028Z" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/>
+            </g>
+        </symbol>    </svg>
+    <header class="header">
+        <div class="container">
+            <h1 class="header__heading">Restaurant name</h1>
+            <nav class="header__navigation">
+                <ul class="header__navigation-list">
+                    <li class="header__navigation-list-item">
+                        <a href="#hot">Горячие блюда</a>
+                    </li>
+                    <li class="header__navigation-list-item">
+                        <a href="#salad">Салаты</a>
+                    </li>
+                    <li class="header__navigation-list-item">
+                        <a href="#desert">Десерты</a>
+                    </li>
+                    <li class="header__navigation-list-item">
+                        <a href="#cocktail">Коктейли</a>
+                    </li>
+                    <li class="header__navigation-list-item">
+                        <a href="#vareniki">Вареники домашние</a>
+                    </li>
+                    <li class="header__navigation-list-item">
+                        <a href="#cesar">Цезарь с курицей</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>    <section id="banner" class="banner">
+        <div class="container">
+            <div class="banner__pic"></div>
+            <div class="banner__contacts">
+                <div class="banner__contacts-item">
+                    <span class="banner__contacts-icon">
+                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <use xlink:href="#location"/>
+                        </svg>
+                    </span>
+                    <div class="banner__contacts-value">
+                        <span>г. Ташкент, Яккасарайский район, ул. Улугбека 5/36</span>
+                    </div>
+                </div>
+                <div class="banner__contacts-item">
+                    <span class="banner__contacts-icon">
+                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <use xlink:href="#wifi"/>
+                        </svg>
+                    </span>
+                    <div class="banner__contacts-value">
+                        <span>Restaurant_wifi_123456789</span>
+                    </div>
+                </div>
+                <div class="banner__contacts-item">
+                    <span class="banner__contacts-icon">
+                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <use xlink:href="#phone"/>
+                        </svg>
+                    </span>
+                    <div class="banner__contacts-value">
+                        <a href="tel:+998905000005">+998 90 500 - 00 - 05</a>
+                        <a href="tel:1055">1055</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>    <section id="hot" class="section">
+        <div class="container">
+            <h2 class="section__title">Горячие блюда</h2>
+            <div class="list">
+                    <div class="list__card">
+                        <div class="list__card-pic"></div>
+                        <div class="list__card-bottom">
+                            <div class="list__card-title">
+                                <span>Вареники домашние</span>
+                            </div>
+                            <span class="list__card-weight">250 г</span>
+                            <div class="list__card-desc">
+                                Вареники с картофельным пюре и жареными лисичками
+                            </div>
+                        </div>
+                    </div>
+                    <div class="list__card">
+                        <div class="list__card-pic"></div>
+                        <div class="list__card-bottom">
+                            <div class="list__card-title">
+                                <span>Вареники домашние</span>
+                            </div>
+                            <span class="list__card-weight">250 г</span>
+                            <div class="list__card-desc">
+                                Вареники с картофельным пюре и жареными лисичками
+                            </div>
+                        </div>
+                    </div>
+                    <div class="list__card">
+                        <div class="list__card-pic"></div>
+                        <div class="list__card-bottom">
+                            <div class="list__card-title">
+                                <span>Вареники домашние</span>
+                            </div>
+                            <span class="list__card-weight">250 г</span>
+                            <div class="list__card-desc">
+                                Вареники с картофельным пюре и жареными лисичками
+                            </div>
+                        </div>
+                    </div>
+                    <div class="list__card">
+                        <div class="list__card-pic"></div>
+                        <div class="list__card-bottom">
+                            <div class="list__card-title">
+                                <span>Вареники домашние</span>
+                            </div>
+                            <span class="list__card-weight">250 г</span>
+                            <div class="list__card-desc">
+                                Вареники с картофельным пюре и жареными лисичками
+                            </div>
+                        </div>
+                    </div>
+                    <div class="list__card">
+                        <div class="list__card-pic"></div>
+                        <div class="list__card-bottom">
+                            <div class="list__card-title">
+                                <span>Вареники домашние</span>
+                            </div>
+                            <span class="list__card-weight">250 г</span>
+                            <div class="list__card-desc">
+                                Вареники с картофельным пюре и жареными лисичками
+                            </div>
+                        </div>
+                    </div>
+                    <div class="list__card">
+                        <div class="list__card-pic"></div>
+                        <div class="list__card-bottom">
+                            <div class="list__card-title">
+                                <span>Вареники домашние</span>
+                            </div>
+                            <span class="list__card-weight">250 г</span>
+                            <div class="list__card-desc">
+                                Вареники с картофельным пюре и жареными лисичками
+                            </div>
+                        </div>
+                    </div>
+                    <div class="list__card">
+                        <div class="list__card-pic"></div>
+                        <div class="list__card-bottom">
+                            <div class="list__card-title">
+                                <span>Вареники домашние</span>
+                            </div>
+                            <span class="list__card-weight">250 г</span>
+                            <div class="list__card-desc">
+                                Вареники с картофельным пюре и жареными лисичками
+                            </div>
+                        </div>
+                    </div>
+                    <div class="list__card">
+                        <div class="list__card-pic"></div>
+                        <div class="list__card-bottom">
+                            <div class="list__card-title">
+                                <span>Вареники домашние</span>
+                            </div>
+                            <span class="list__card-weight">250 г</span>
+                            <div class="list__card-desc">
+                                Вареники с картофельным пюре и жареными лисичками
+                            </div>
+                        </div>
+                    </div>
+                    <div class="list__card">
+                        <div class="list__card-pic"></div>
+                        <div class="list__card-bottom">
+                            <div class="list__card-title">
+                                <span>Вареники домашние</span>
+                            </div>
+                            <span class="list__card-weight">250 г</span>
+                            <div class="list__card-desc">
+                                Вареники с картофельным пюре и жареными лисичками
+                            </div>
+                        </div>
+                    </div>
+                    <div class="list__card">
+                        <div class="list__card-pic"></div>
+                        <div class="list__card-bottom">
+                            <div class="list__card-title">
+                                <span>Вареники домашние</span>
+                            </div>
+                            <span class="list__card-weight">250 г</span>
+                            <div class="list__card-desc">
+                                Вареники с картофельным пюре и жареными лисичками
+                            </div>
+                        </div>
+                    </div>
+            </div>
+        </div>
+    </section>
+    <section id="salad" class="section">
+        <div class="container">
+            <h2 class="section__title">Салаты</h2>
+            <div class="list">
+                    <div class="list__card">
+                        <div class="list__card-pic"></div>
+                        <div class="list__card-bottom">
+                            <div class="list__card-title">
+                                <span>Вареники домашние</span>
+                            </div>
+                            <span class="list__card-weight">250 г</span>
+                            <div class="list__card-desc">
+                                Вареники с картофельным пюре и жареными лисичками
+                            </div>
+                        </div>
+                    </div>
+                    <div class="list__card">
+                        <div class="list__card-pic"></div>
+                        <div class="list__card-bottom">
+                            <div class="list__card-title">
+                                <span>Вареники домашние</span>
+                            </div>
+                            <span class="list__card-weight">250 г</span>
+                            <div class="list__card-desc">
+                                Вареники с картофельным пюре и жареными лисичками
+                            </div>
+                        </div>
+                    </div>
+                    <div class="list__card">
+                        <div class="list__card-pic"></div>
+                        <div class="list__card-bottom">
+                            <div class="list__card-title">
+                                <span>Вареники домашние</span>
+                            </div>
+                            <span class="list__card-weight">250 г</span>
+                            <div class="list__card-desc">
+                                Вареники с картофельным пюре и жареными лисичками
+                            </div>
+                        </div>
+                    </div>
+                    <div class="list__card">
+                        <div class="list__card-pic"></div>
+                        <div class="list__card-bottom">
+                            <div class="list__card-title">
+                                <span>Вареники домашние</span>
+                            </div>
+                            <span class="list__card-weight">250 г</span>
+                            <div class="list__card-desc">
+                                Вареники с картофельным пюре и жареными лисичками
+                            </div>
+                        </div>
+                    </div>
+                    <div class="list__card">
+                        <div class="list__card-pic"></div>
+                        <div class="list__card-bottom">
+                            <div class="list__card-title">
+                                <span>Вареники домашние</span>
+                            </div>
+                            <span class="list__card-weight">250 г</span>
+                            <div class="list__card-desc">
+                                Вареники с картофельным пюре и жареными лисичками
+                            </div>
+                        </div>
+                    </div>
+                    <div class="list__card">
+                        <div class="list__card-pic"></div>
+                        <div class="list__card-bottom">
+                            <div class="list__card-title">
+                                <span>Вареники домашние</span>
+                            </div>
+                            <span class="list__card-weight">250 г</span>
+                            <div class="list__card-desc">
+                                Вареники с картофельным пюре и жареными лисичками
+                            </div>
+                        </div>
+                    </div>
+                    <div class="list__card">
+                        <div class="list__card-pic"></div>
+                        <div class="list__card-bottom">
+                            <div class="list__card-title">
+                                <span>Вареники домашние</span>
+                            </div>
+                            <span class="list__card-weight">250 г</span>
+                            <div class="list__card-desc">
+                                Вареники с картофельным пюре и жареными лисичками
+                            </div>
+                        </div>
+                    </div>
+                    <div class="list__card">
+                        <div class="list__card-pic"></div>
+                        <div class="list__card-bottom">
+                            <div class="list__card-title">
+                                <span>Вареники домашние</span>
+                            </div>
+                            <span class="list__card-weight">250 г</span>
+                            <div class="list__card-desc">
+                                Вареники с картофельным пюре и жареными лисичками
+                            </div>
+                        </div>
+                    </div>
+                    <div class="list__card">
+                        <div class="list__card-pic"></div>
+                        <div class="list__card-bottom">
+                            <div class="list__card-title">
+                                <span>Вареники домашние</span>
+                            </div>
+                            <span class="list__card-weight">250 г</span>
+                            <div class="list__card-desc">
+                                Вареники с картофельным пюре и жареными лисичками
+                            </div>
+                        </div>
+                    </div>
+                    <div class="list__card">
+                        <div class="list__card-pic"></div>
+                        <div class="list__card-bottom">
+                            <div class="list__card-title">
+                                <span>Вареники домашние</span>
+                            </div>
+                            <span class="list__card-weight">250 г</span>
+                            <div class="list__card-desc">
+                                Вареники с картофельным пюре и жареными лисичками
+                            </div>
+                        </div>
+                    </div>
+            </div>
+        </div>
+    </section>
+    <section id="desert" class="section">
+        <div class="container">
+            <h2 class="section__title">Десерты</h2>
+            <div class="list">
+                    <div class="list__card">
+                        <div class="list__card-pic"></div>
+                        <div class="list__card-bottom">
+                            <div class="list__card-title">
+                                <span>Вареники домашние</span>
+                            </div>
+                            <span class="list__card-weight">250 г</span>
+                            <div class="list__card-desc">
+                                Вареники с картофельным пюре и жареными лисичками
+                            </div>
+                        </div>
+                    </div>
+                    <div class="list__card">
+                        <div class="list__card-pic"></div>
+                        <div class="list__card-bottom">
+                            <div class="list__card-title">
+                                <span>Вареники домашние</span>
+                            </div>
+                            <span class="list__card-weight">250 г</span>
+                            <div class="list__card-desc">
+                                Вареники с картофельным пюре и жареными лисичками
+                            </div>
+                        </div>
+                    </div>
+                    <div class="list__card">
+                        <div class="list__card-pic"></div>
+                        <div class="list__card-bottom">
+                            <div class="list__card-title">
+                                <span>Вареники домашние</span>
+                            </div>
+                            <span class="list__card-weight">250 г</span>
+                            <div class="list__card-desc">
+                                Вареники с картофельным пюре и жареными лисичками
+                            </div>
+                        </div>
+                    </div>
+                    <div class="list__card">
+                        <div class="list__card-pic"></div>
+                        <div class="list__card-bottom">
+                            <div class="list__card-title">
+                                <span>Вареники домашние</span>
+                            </div>
+                            <span class="list__card-weight">250 г</span>
+                            <div class="list__card-desc">
+                                Вареники с картофельным пюре и жареными лисичками
+                            </div>
+                        </div>
+                    </div>
+                    <div class="list__card">
+                        <div class="list__card-pic"></div>
+                        <div class="list__card-bottom">
+                            <div class="list__card-title">
+                                <span>Вареники домашние</span>
+                            </div>
+                            <span class="list__card-weight">250 г</span>
+                            <div class="list__card-desc">
+                                Вареники с картофельным пюре и жареными лисичками
+                            </div>
+                        </div>
+                    </div>
+                    <div class="list__card">
+                        <div class="list__card-pic"></div>
+                        <div class="list__card-bottom">
+                            <div class="list__card-title">
+                                <span>Вареники домашние</span>
+                            </div>
+                            <span class="list__card-weight">250 г</span>
+                            <div class="list__card-desc">
+                                Вареники с картофельным пюре и жареными лисичками
+                            </div>
+                        </div>
+                    </div>
+                    <div class="list__card">
+                        <div class="list__card-pic"></div>
+                        <div class="list__card-bottom">
+                            <div class="list__card-title">
+                                <span>Вареники домашние</span>
+                            </div>
+                            <span class="list__card-weight">250 г</span>
+                            <div class="list__card-desc">
+                                Вареники с картофельным пюре и жареными лисичками
+                            </div>
+                        </div>
+                    </div>
+                    <div class="list__card">
+                        <div class="list__card-pic"></div>
+                        <div class="list__card-bottom">
+                            <div class="list__card-title">
+                                <span>Вареники домашние</span>
+                            </div>
+                            <span class="list__card-weight">250 г</span>
+                            <div class="list__card-desc">
+                                Вареники с картофельным пюре и жареными лисичками
+                            </div>
+                        </div>
+                    </div>
+                    <div class="list__card">
+                        <div class="list__card-pic"></div>
+                        <div class="list__card-bottom">
+                            <div class="list__card-title">
+                                <span>Вареники домашние</span>
+                            </div>
+                            <span class="list__card-weight">250 г</span>
+                            <div class="list__card-desc">
+                                Вареники с картофельным пюре и жареными лисичками
+                            </div>
+                        </div>
+                    </div>
+                    <div class="list__card">
+                        <div class="list__card-pic"></div>
+                        <div class="list__card-bottom">
+                            <div class="list__card-title">
+                                <span>Вареники домашние</span>
+                            </div>
+                            <span class="list__card-weight">250 г</span>
+                            <div class="list__card-desc">
+                                Вареники с картофельным пюре и жареными лисичками
+                            </div>
+                        </div>
+                    </div>
+            </div>
+        </div>
+    </section>
+    <section id="cocktail" class="section">
+        <div class="container">
+            <h2 class="section__title">Коктейли</h2>
+            <div class="list">
+                    <div class="list__card">
+                        <div class="list__card-pic"></div>
+                        <div class="list__card-bottom">
+                            <div class="list__card-title">
+                                <span>Вареники домашние</span>
+                            </div>
+                            <span class="list__card-weight">250 г</span>
+                            <div class="list__card-desc">
+                                Вареники с картофельным пюре и жареными лисичками
+                            </div>
+                        </div>
+                    </div>
+                    <div class="list__card">
+                        <div class="list__card-pic"></div>
+                        <div class="list__card-bottom">
+                            <div class="list__card-title">
+                                <span>Вареники домашние</span>
+                            </div>
+                            <span class="list__card-weight">250 г</span>
+                            <div class="list__card-desc">
+                                Вареники с картофельным пюре и жареными лисичками
+                            </div>
+                        </div>
+                    </div>
+                    <div class="list__card">
+                        <div class="list__card-pic"></div>
+                        <div class="list__card-bottom">
+                            <div class="list__card-title">
+                                <span>Вареники домашние</span>
+                            </div>
+                            <span class="list__card-weight">250 г</span>
+                            <div class="list__card-desc">
+                                Вареники с картофельным пюре и жареными лисичками
+                            </div>
+                        </div>
+                    </div>
+                    <div class="list__card">
+                        <div class="list__card-pic"></div>
+                        <div class="list__card-bottom">
+                            <div class="list__card-title">
+                                <span>Вареники домашние</span>
+                            </div>
+                            <span class="list__card-weight">250 г</span>
+                            <div class="list__card-desc">
+                                Вареники с картофельным пюре и жареными лисичками
+                            </div>
+                        </div>
+                    </div>
+                    <div class="list__card">
+                        <div class="list__card-pic"></div>
+                        <div class="list__card-bottom">
+                            <div class="list__card-title">
+                                <span>Вареники домашние</span>
+                            </div>
+                            <span class="list__card-weight">250 г</span>
+                            <div class="list__card-desc">
+                                Вареники с картофельным пюре и жареными лисичками
+                            </div>
+                        </div>
+                    </div>
+                    <div class="list__card">
+                        <div class="list__card-pic"></div>
+                        <div class="list__card-bottom">
+                            <div class="list__card-title">
+                                <span>Вареники домашние</span>
+                            </div>
+                            <span class="list__card-weight">250 г</span>
+                            <div class="list__card-desc">
+                                Вареники с картофельным пюре и жареными лисичками
+                            </div>
+                        </div>
+                    </div>
+                    <div class="list__card">
+                        <div class="list__card-pic"></div>
+                        <div class="list__card-bottom">
+                            <div class="list__card-title">
+                                <span>Вареники домашние</span>
+                            </div>
+                            <span class="list__card-weight">250 г</span>
+                            <div class="list__card-desc">
+                                Вареники с картофельным пюре и жареными лисичками
+                            </div>
+                        </div>
+                    </div>
+                    <div class="list__card">
+                        <div class="list__card-pic"></div>
+                        <div class="list__card-bottom">
+                            <div class="list__card-title">
+                                <span>Вареники домашние</span>
+                            </div>
+                            <span class="list__card-weight">250 г</span>
+                            <div class="list__card-desc">
+                                Вареники с картофельным пюре и жареными лисичками
+                            </div>
+                        </div>
+                    </div>
+                    <div class="list__card">
+                        <div class="list__card-pic"></div>
+                        <div class="list__card-bottom">
+                            <div class="list__card-title">
+                                <span>Вареники домашние</span>
+                            </div>
+                            <span class="list__card-weight">250 г</span>
+                            <div class="list__card-desc">
+                                Вареники с картофельным пюре и жареными лисичками
+                            </div>
+                        </div>
+                    </div>
+                    <div class="list__card">
+                        <div class="list__card-pic"></div>
+                        <div class="list__card-bottom">
+                            <div class="list__card-title">
+                                <span>Вареники домашние</span>
+                            </div>
+                            <span class="list__card-weight">250 г</span>
+                            <div class="list__card-desc">
+                                Вареники с картофельным пюре и жареными лисичками
+                            </div>
+                        </div>
+                    </div>
+            </div>
+        </div>
+    </section>
+    <section id="vareniki" class="section">
+        <div class="container">
+            <h2 class="section__title">Вареники домашние</h2>
+            <div class="list">
+                    <div class="list__card">
+                        <div class="list__card-pic"></div>
+                        <div class="list__card-bottom">
+                            <div class="list__card-title">
+                                <span>Вареники домашние</span>
+                            </div>
+                            <span class="list__card-weight">250 г</span>
+                            <div class="list__card-desc">
+                                Вареники с картофельным пюре и жареными лисичками
+                            </div>
+                        </div>
+                    </div>
+                    <div class="list__card">
+                        <div class="list__card-pic"></div>
+                        <div class="list__card-bottom">
+                            <div class="list__card-title">
+                                <span>Вареники домашние</span>
+                            </div>
+                            <span class="list__card-weight">250 г</span>
+                            <div class="list__card-desc">
+                                Вареники с картофельным пюре и жареными лисичками
+                            </div>
+                        </div>
+                    </div>
+                    <div class="list__card">
+                        <div class="list__card-pic"></div>
+                        <div class="list__card-bottom">
+                            <div class="list__card-title">
+                                <span>Вареники домашние</span>
+                            </div>
+                            <span class="list__card-weight">250 г</span>
+                            <div class="list__card-desc">
+                                Вареники с картофельным пюре и жареными лисичками
+                            </div>
+                        </div>
+                    </div>
+                    <div class="list__card">
+                        <div class="list__card-pic"></div>
+                        <div class="list__card-bottom">
+                            <div class="list__card-title">
+                                <span>Вареники домашние</span>
+                            </div>
+                            <span class="list__card-weight">250 г</span>
+                            <div class="list__card-desc">
+                                Вареники с картофельным пюре и жареными лисичками
+                            </div>
+                        </div>
+                    </div>
+                    <div class="list__card">
+                        <div class="list__card-pic"></div>
+                        <div class="list__card-bottom">
+                            <div class="list__card-title">
+                                <span>Вареники домашние</span>
+                            </div>
+                            <span class="list__card-weight">250 г</span>
+                            <div class="list__card-desc">
+                                Вареники с картофельным пюре и жареными лисичками
+                            </div>
+                        </div>
+                    </div>
+                    <div class="list__card">
+                        <div class="list__card-pic"></div>
+                        <div class="list__card-bottom">
+                            <div class="list__card-title">
+                                <span>Вареники домашние</span>
+                            </div>
+                            <span class="list__card-weight">250 г</span>
+                            <div class="list__card-desc">
+                                Вареники с картофельным пюре и жареными лисичками
+                            </div>
+                        </div>
+                    </div>
+                    <div class="list__card">
+                        <div class="list__card-pic"></div>
+                        <div class="list__card-bottom">
+                            <div class="list__card-title">
+                                <span>Вареники домашние</span>
+                            </div>
+                            <span class="list__card-weight">250 г</span>
+                            <div class="list__card-desc">
+                                Вареники с картофельным пюре и жареными лисичками
+                            </div>
+                        </div>
+                    </div>
+                    <div class="list__card">
+                        <div class="list__card-pic"></div>
+                        <div class="list__card-bottom">
+                            <div class="list__card-title">
+                                <span>Вареники домашние</span>
+                            </div>
+                            <span class="list__card-weight">250 г</span>
+                            <div class="list__card-desc">
+                                Вареники с картофельным пюре и жареными лисичками
+                            </div>
+                        </div>
+                    </div>
+                    <div class="list__card">
+                        <div class="list__card-pic"></div>
+                        <div class="list__card-bottom">
+                            <div class="list__card-title">
+                                <span>Вареники домашние</span>
+                            </div>
+                            <span class="list__card-weight">250 г</span>
+                            <div class="list__card-desc">
+                                Вареники с картофельным пюре и жареными лисичками
+                            </div>
+                        </div>
+                    </div>
+                    <div class="list__card">
+                        <div class="list__card-pic"></div>
+                        <div class="list__card-bottom">
+                            <div class="list__card-title">
+                                <span>Вареники домашние</span>
+                            </div>
+                            <span class="list__card-weight">250 г</span>
+                            <div class="list__card-desc">
+                                Вареники с картофельным пюре и жареными лисичками
+                            </div>
+                        </div>
+                    </div>
+            </div>
+        </div>
+    </section>
+    <section id="cesar" class="section">
+        <div class="container">
+            <h2 class="section__title">Цезарь с курицей</h2>
+            <div class="list">
+                    <div class="list__card">
+                        <div class="list__card-pic"></div>
+                        <div class="list__card-bottom">
+                            <div class="list__card-title">
+                                <span>Вареники домашние</span>
+                            </div>
+                            <span class="list__card-weight">250 г</span>
+                            <div class="list__card-desc">
+                                Вареники с картофельным пюре и жареными лисичками
+                            </div>
+                        </div>
+                    </div>
+                    <div class="list__card">
+                        <div class="list__card-pic"></div>
+                        <div class="list__card-bottom">
+                            <div class="list__card-title">
+                                <span>Вареники домашние</span>
+                            </div>
+                            <span class="list__card-weight">250 г</span>
+                            <div class="list__card-desc">
+                                Вареники с картофельным пюре и жареными лисичками
+                            </div>
+                        </div>
+                    </div>
+                    <div class="list__card">
+                        <div class="list__card-pic"></div>
+                        <div class="list__card-bottom">
+                            <div class="list__card-title">
+                                <span>Вареники домашние</span>
+                            </div>
+                            <span class="list__card-weight">250 г</span>
+                            <div class="list__card-desc">
+                                Вареники с картофельным пюре и жареными лисичками
+                            </div>
+                        </div>
+                    </div>
+                    <div class="list__card">
+                        <div class="list__card-pic"></div>
+                        <div class="list__card-bottom">
+                            <div class="list__card-title">
+                                <span>Вареники домашние</span>
+                            </div>
+                            <span class="list__card-weight">250 г</span>
+                            <div class="list__card-desc">
+                                Вареники с картофельным пюре и жареными лисичками
+                            </div>
+                        </div>
+                    </div>
+                    <div class="list__card">
+                        <div class="list__card-pic"></div>
+                        <div class="list__card-bottom">
+                            <div class="list__card-title">
+                                <span>Вареники домашние</span>
+                            </div>
+                            <span class="list__card-weight">250 г</span>
+                            <div class="list__card-desc">
+                                Вареники с картофельным пюре и жареными лисичками
+                            </div>
+                        </div>
+                    </div>
+                    <div class="list__card">
+                        <div class="list__card-pic"></div>
+                        <div class="list__card-bottom">
+                            <div class="list__card-title">
+                                <span>Вареники домашние</span>
+                            </div>
+                            <span class="list__card-weight">250 г</span>
+                            <div class="list__card-desc">
+                                Вареники с картофельным пюре и жареными лисичками
+                            </div>
+                        </div>
+                    </div>
+                    <div class="list__card">
+                        <div class="list__card-pic"></div>
+                        <div class="list__card-bottom">
+                            <div class="list__card-title">
+                                <span>Вареники домашние</span>
+                            </div>
+                            <span class="list__card-weight">250 г</span>
+                            <div class="list__card-desc">
+                                Вареники с картофельным пюре и жареными лисичками
+                            </div>
+                        </div>
+                    </div>
+                    <div class="list__card">
+                        <div class="list__card-pic"></div>
+                        <div class="list__card-bottom">
+                            <div class="list__card-title">
+                                <span>Вареники домашние</span>
+                            </div>
+                            <span class="list__card-weight">250 г</span>
+                            <div class="list__card-desc">
+                                Вареники с картофельным пюре и жареными лисичками
+                            </div>
+                        </div>
+                    </div>
+                    <div class="list__card">
+                        <div class="list__card-pic"></div>
+                        <div class="list__card-bottom">
+                            <div class="list__card-title">
+                                <span>Вареники домашние</span>
+                            </div>
+                            <span class="list__card-weight">250 г</span>
+                            <div class="list__card-desc">
+                                Вареники с картофельным пюре и жареными лисичками
+                            </div>
+                        </div>
+                    </div>
+                    <div class="list__card">
+                        <div class="list__card-pic"></div>
+                        <div class="list__card-bottom">
+                            <div class="list__card-title">
+                                <span>Вареники домашние</span>
+                            </div>
+                            <span class="list__card-weight">250 г</span>
+                            <div class="list__card-desc">
+                                Вареники с картофельным пюре и жареными лисичками
+                            </div>
+                        </div>
+                    </div>
+            </div>
+        </div>
+    </section>    <div class="modal" data-modal>
+        <div class="modal__backdrop" data-modal-backdrop></div>
+        <div class="modal__window">
+            <button class="modal__close-button" data-modal-close>
+                <svg>
+                    <use xlink:href="#closeIcon"/>
+                </svg>
+            </button>
+            <div class="modal__modal-content" id="modalModalDestination">
+                <!--content will here-->
+            </div>
+        </div>
+    </div><script src="js/bundle.min.js?ver=1738941652466"></script></body>
+</html>
