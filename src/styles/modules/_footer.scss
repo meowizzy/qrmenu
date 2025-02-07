@@ -1,0 +1,35 @@
+.footer {
+  background-color: var(--color-black);
+  margin-top: auto;
+  color: var(--color-white);
+  .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    padding-top: 80px;
+    padding-bottom: 80px;
+
+    @media all and (max-width: 959px) {
+      padding-top: 52px;
+      padding-bottom: 52px;
+    }
+  }
+  &__left {}
+  &__right {}
+  &__logo {
+    display: block;
+    @media all and (max-width: 767px) {
+      max-width: 150px;
+    }
+    svg, img {
+      max-width: 100%;
+      display: inline-block;
+    }
+  }
+  &__copyright {
+    @media all and (max-width: 767px) {
+      font-size: 14px;
+    }
+  }
+}

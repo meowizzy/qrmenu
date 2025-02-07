@@ -1,0 +1,17 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+}
+
+ul, ol {
+  padding-left: 30px;
+}
+
+input, button, select, textarea {
+  outline: none;
+  border: 0;
+  box-shadow: none;
+  background-color: transparent;
+}

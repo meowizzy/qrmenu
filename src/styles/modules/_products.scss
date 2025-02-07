@@ -1,0 +1,15 @@
+.section {
+
+  .container {
+    padding-top: 20px;
+    padding-bottom: 20px;
+  }
+
+  &__title {
+    margin-bottom: 20px;
+
+    @media all and (max-width: 500px) {
+      margin-bottom: 16px;
+    }
+  }
+}

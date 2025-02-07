@@ -1,0 +1,113 @@
+@keyframes scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(calc(-100% - 0rem));
+  }
+}
+
+body {
+  color: var(--color-black);
+  font-family: var(--primary-font);
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  min-height: 100vh;
+}
+
+a {
+  color: inherit;
+  font-weight: 300;
+  transition: color var(--transition);
+
+  &:hover {
+    color: var(--color-primary);
+  }
+}
+
+html {
+  &.locked {
+    overflow: hidden;
+  }
+}
+
+.vertical-fancy-scrollbar {
+  &::-webkit-scrollbar {
+    width: 7px;
+    height: 7px;
+  }
+  &::-webkit-scrollbar-button:end:increment, &::-webkit-scrollbar-button:start:decrement {
+    background: transparent;
+    display: none;
+  }
+  &::-webkit-scrollbar-track-piece {
+    background: var(--color-light-gray);
+  }
+  &::-webkit-scrollbar-track-piece:vertical:start {
+    border-radius: 10px 10px 0 0;
+  }
+  &::-webkit-scrollbar-track-piece:vertical:end {
+    border-radius: 0 0 10px 10px;
+  }
+  &::-webkit-scrollbar-track-piece:horizontal:start {
+    border-radius: 10px 0 0 10px;
+  }
+  &::-webkit-scrollbar-track-piece:horizontal:end {
+    border-radius: 0 10px 10px 0;
+  }
+  &::-webkit-scrollbar-thumb:horizontal, &::-webkit-scrollbar-thumb:vertical {
+    background: var(--color-primary);
+    border-radius: 10px;
+    display: block;
+    height: 100px;
+  }
+}
+
+.horizontal-fancy-scrollbar {
+  &::-webkit-scrollbar {
+    margin-top: 10px;
+    width: 5px;
+    height: 5px;
+  }
+  &::-webkit-scrollbar-button:end:increment, &::-webkit-scrollbar-button:start:decrement {
+    background: transparent;
+    display: none;
+  }
+  &::-webkit-scrollbar-track-piece {
+    background: transparent;
+  }
+  &::-webkit-scrollbar-track-piece:vertical:start {
+    border-radius: 10px 10px 0 0;
+  }
+  &::-webkit-scrollbar-track-piece:vertical:end {
+    border-radius: 0 0 10px 10px;
+  }
+  &::-webkit-scrollbar-track-piece:horizontal:start {
+    border-radius: 10px 0 0 10px;
+  }
+  &::-webkit-scrollbar-track-piece:horizontal:end {
+    border-radius: 0 10px 10px 0;
+  }
+  &::-webkit-scrollbar-thumb:horizontal, &::-webkit-scrollbar-thumb:vertical {
+    background: var(--color-primary);
+    border-radius: 10px;
+    display: block;
+    height: 5px;
+  }
+}
+
+html, body {
+  scroll-behavior: smooth;
+}
+
+.container {
+  max-width: var(--container-width);
+  width: 100%;
+  margin: 0 auto;
+
+  @media all and (max-width: 1200px) {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+}

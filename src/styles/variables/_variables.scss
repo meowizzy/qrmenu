@@ -1,0 +1,17 @@
+:root {
+  --initial-font: "Arial", "Helvetica", "sans-serif";
+  --primary-font: "Mulish", var(--initial-font);
+
+  --font-weight-r: 400;
+  --font-weight-m: 500;
+  --font-weight-s: 600;
+  --font-weight-b: 700;
+
+  --container-width: 1200px;
+
+  --radius-xs: 8px;
+  --radius-sm: 16px;
+  --radius-md: 30px;
+
+  --transition: .3s;
+}
