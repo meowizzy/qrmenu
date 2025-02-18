@@ -1,29 +1,32 @@
 .header {
-  background-color: var(--color-white);
-  position: sticky;
-  top: 0;
-  z-index: 10;
-
   .container {
-    padding: 16px 0 7px;
+    padding: 16px 0 0;
   }
 
   &__heading {
     font-size: 24px;
     font-weight: 700;
     line-height: 30.12px;
-    margin-bottom: 16px;
 
     @media all and (max-width: 1200px) {
       padding: 0 20px;
     }
   }
+}
 
-  &__navigation {
-    overflow: hidden;
+
+.navigation {
+  top: 0;
+  z-index: 10;
+  position: sticky;
+  background: var(--color-white);
+  padding: 10px 0 3px;
+
+  &__inner {
+    overflow: hidden;;
   }
 
-  &__navigation-list {
+  &__list {
     display: flex;
     list-style: none;
     padding: 0 0 7px;
@@ -44,7 +47,7 @@
     }
   }
 
-  &__navigation-list-item {
+  &__list-item {
     margin-right: 8px;
     border-radius: var(--radius-md);
     background-color: var(--color-light-gray);
