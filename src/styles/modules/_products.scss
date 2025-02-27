@@ -8,6 +8,12 @@
   &__title {
     margin-bottom: 20px;
 
+    &--skeleton {
+      height: 24px;
+      border-radius: var(--radius-sm);
+      max-width: 300px;
+    }
+
     @media all and (max-width: 500px) {
       margin-bottom: 16px;
     }

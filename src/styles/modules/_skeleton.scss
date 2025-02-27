@@ -1,7 +1,7 @@
 .skeleton {
   position: relative;
   overflow: hidden;
-  background-color: var(--color-light-grey);
+  background-color: var(--color-light-gray);
 
   &::after {
     position: absolute;
@@ -12,6 +12,7 @@
     transform: translateX(-100%);
     animation: shimmer 1s infinite;
     content: '';
+    background-image: linear-gradient(90deg, transparent 0, rgba(var(--color-white-rgb), 0.7) 20%, rgba(var(--color-white-rgb), 0.7) 60%, transparent);
   }
 
   @keyframes shimmer {

@@ -55,12 +55,26 @@
     font-size: 18px;
     font-weight: 700;
     line-height: 22.59px;
+
+    &--skeleton {
+      height: 22.59px;
+      border-radius: var(--radius-sm);
+      max-width: 170px;
+      width: 100%;
+    }
   }
 
   &__card-weight {
     font-size: 14px;
     color: var(--color-gray-dark);
     font-weight: 600;
+
+    &--skeleton {
+      height: 18px;
+      max-width: 50px;
+      width: 100%;
+      border-radius: var(--radius-sm);
+    }
   }
 
   &__card-desc {
@@ -68,5 +82,21 @@
     margin-top: 6px;
     font-size: 14px;
     color: var(--color-gray-dark);
+
+    &--skeleton {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+      .list__card-desc-skeleton-row {
+        height: 12px;
+        border-radius: var(--radius-sm);
+        &:nth-child(2) {
+          width: 80%;
+        }
+        &:nth-child(3) {
+          width: 40%;
+        }
+      }
+    }
   }
 }

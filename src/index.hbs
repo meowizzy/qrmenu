@@ -12,9 +12,18 @@
     <svg style="position: absolute; top: -1000px; left: -1000px; pointer-events: none; opacity: 0">
         {{> template-parts/sprites }}
     </svg>
-    {{> template-parts/header }}
-    {{> template-parts/banner }}
-    {{> template-parts/products }}
-    {{> template-parts/modal type="modal" }}
+    <!--noindex-->
+    <div class="loader" aria-hidden="true">
+        {{> template-parts/skeleton/header }}
+        {{> template-parts/skeleton/banner }}
+        {{> template-parts/skeleton/products }}
+    </div>
+    <!--/noindex-->
+    <div class="root d-none">
+        {{> template-parts/header }}
+        {{> template-parts/banner }}
+        {{> template-parts/products }}
+        {{> template-parts/modal type="modal" }}
+    </div>
 </body>
 </html>
