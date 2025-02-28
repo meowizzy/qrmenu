@@ -13,8 +13,10 @@ export const dataRender = () => {
     };
 
     if (!companyId) {
-        renderError("Не указан идентификатор ресторана");
+        renderError("Не указан идентификатор ресторана", root);
         showRoot();
+
+        return;
     }
 
     const render = (props) => {
@@ -27,14 +29,14 @@ export const dataRender = () => {
 
         root.innerHTML = "";
 
-        getProducts(categories, products);
+        // getProducts(categories, products);
 
-        // root.insertAdjacentHTML("beforeend", `
-        //     ${getHeader(companyName)}
-        //     ${getCategories(categories)}
-        //     ${getBanner(bannerData)}
-        //     ${getProducts(categories, products)}
-        // `);
+        root.insertAdjacentHTML("beforeend", `
+            ${getHeader(companyName)}
+            ${getCategories(categories)}
+            ${getBanner(bannerData)}
+            ${getProducts(categories, products)}
+        `);
     };
 
     const fetchData = async () => {
@@ -65,14 +67,14 @@ export const dataRender = () => {
                         wifiPassword: details?.wifiPassword,
                     }
                 });
-                // tabs();
+                tabs();
             } else {
                 const message = details?.detail;
                 throw new Error(message);
             }
         } catch (e) {
             console.error(e);
-            renderError(e.message);
+            renderError(e.message, root);
         } finally {
             showRoot();
         }

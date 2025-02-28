@@ -1,16 +1,16 @@
-export const renderError = (msg) => {
-    return `
-            <div class="error">
-                <div class="error__icon">
-                    <svg x="0px" y="0px" width="100" height="100" viewBox="0,0,256,256">
-                        <use xlink:href="#error"/>
-                    </svg>
-                </div>
-                <div class="error__message">
-                    <span>${msg}</span>
-                </div>
+export const renderError = (msg, root) => {
+    root.insertAdjacentHTML("beforeend", `
+        <div class="error">
+            <div class="error__icon">
+                <svg x="0px" y="0px" width="100" height="100" viewBox="0,0,256,256">
+                    <use xlink:href="#error"/>
+                </svg>
             </div>
-        `;
+            <div class="error__message">
+                <span>${msg}</span>
+            </div>
+        </div>
+    `);
 };
 
 export const getHeader = (name) => {
@@ -88,24 +88,24 @@ export const getCategories = (categories) => {
 
     const items = categories.map((item) => {
         return `
-                <li class="navigation__list-item">
-                    <a href="#${item.id}">${item.name}</a>
-                </li>
-            `;
+            <li class="navigation__list-item">
+                <a href="#${item.id}">${item.name}</a>
+            </li>
+        `;
     });
 
     return `
-            <div class="navigation">
-                <div class="container">
-                    <nav class="navigation__inner">
-                        <ul class="navigation__list">
-                            <span class="badge"></span>
-                            ${items.join("")}
-                        </ul>
-                    </nav>
-                </div>
+        <div class="navigation">
+            <div class="container">
+                <nav class="navigation__inner">
+                    <ul class="navigation__list">
+                        <span class="badge"></span>
+                        ${items.join("")}
+                    </ul>
+                </nav>
             </div>
-        `;
+        </div>
+    `;
 };
 
 export const getProducts = (categories, products) => {
@@ -128,35 +128,42 @@ export const getProducts = (categories, products) => {
         return map;
     }, new Map);
 
-    const sectionsTemplate = Object.fromEntries(mappedCategories).map(([key, products]) => {
-        const sectionTitle = !!mappedCategories[key]?.name && `
-            <h2 class="section__title">${mappedCategories[key].name}</h2>
+    const sections = [];
+
+    mappedCategories.forEach((products, key) => {
+        const [id, name] = key.split("_");
+
+        const sectionTitle = !!name && `
+            <h2 class="section__title">${name}</h2>
         `;
 
-        const items = products.map((product) => {
-            const pic = !!product?.photo && `
+        let items;
+
+        if (products.length) {
+            items = products.map((product) => {
+                const pic = !!product?.photo && `
                 <div class="list__card-pic">
                     <img src="${product.photo.url}" alt="${product.photo.name}">
                 </div>
             `;
 
-            const title = !!product?.name && `
+                const title = !!product?.name && `
                 <div class="list__card-title">
                     <span>${product.name}</span>
                 </div>
             `;
 
-            const description = !!product?.description && `
+                const description = !!product?.description && `
                 <div class="list__card-desc">
                     ${product.description}
                 </div>
             `;
 
-            const unit = !!product?.unit && `
+                const unit = !!product?.unit && `
                 <span class="list__card-weight">${product.unit}</span>
             `;
 
-            return `
+                return `
                 <div class="list__card">
                     ${pic || ""}
                     <div class="list__card-bottom">
@@ -166,19 +173,35 @@ export const getProducts = (categories, products) => {
                     </div>
                 </div>
             `;
-        });
+            });
 
-        return `
-            <section data-anchor="${key}" class="section">
+            items = items.join("");
+        } else {
+            items = `
+                <div class="list__empty">
+                    <div class="list__empty-icon">
+                        <svg viewBox="0 0 711 379">
+                            <use xlink:href="#plate"/>
+                        </svg>
+                    </div>
+                    <div class="list__empty-title">
+                        <span>Будет скоро</span>
+                    </div>
+                </div> 
+            `;
+        }
+
+        sections.push(`
+            <section data-anchor="${id.slice(1)}" class="section">
                 <div class="container">
                     ${sectionTitle || ""}
                     <div class="list">
-                        ${items.join("")}
+                        ${items}
                     </div>
                 </div>
             </section>
-        `;
+        `);
     });
 
-    return sectionsTemplate.join("");
+    return sections.join("");
 };

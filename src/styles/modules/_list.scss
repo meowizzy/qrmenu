@@ -6,6 +6,29 @@
     margin: 0 -10px;
   }
 
+  &__empty {
+    min-height: 280px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    flex-direction: column;
+    width: 100%;
+    color: var(--color-gray);
+
+    &-icon {
+      svg {
+        width: 60px;
+        height: 60px;
+      }
+    }
+
+    &-title {
+      font-size: 20px;
+      font-weight: 700;
+    }
+  }
+
   &__card {
     width: calc(100% / 4 - 20px);
     margin: 0 10px 20px;
