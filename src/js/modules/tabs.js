@@ -1,5 +1,6 @@
 import { removeAllClasses } from "../helpers/removeAllClasses";
 import { getElementDimensions } from "../helpers/getElementDimensions";
+import { scrollTo } from "../helpers/scrollTo";
 
 export const tabs = () => {
     const navigationRoot = document.querySelector(".root .navigation__list");
@@ -8,6 +9,8 @@ export const tabs = () => {
     const navigationItems = navigationRoot.querySelectorAll(navigationTargetSelector);
     const sections = document.querySelectorAll(".root section");
     const validSections = Array.from(sections).filter((section) => !section.classList.contains("banner"));
+    const hash = location.hash.slice(1);
+    const scrollEndExist = window.hasOwnProperty("onscrollend");
 
     if (!navigationItems) {
         return;
@@ -25,6 +28,8 @@ export const tabs = () => {
             height
         } = getElementDimensions(item);
 
+        navigationRoot.scrollLeft = x;
+
         navigationRoot.style.setProperty("--x", `${x}px`);
         navigationRoot.style.setProperty("--width", `${width}px`);
         navigationRoot.style.setProperty("--height", `${height}px`);
@@ -33,23 +38,25 @@ export const tabs = () => {
     const intersectionObserverConfig = {
         root: null,
         rootMargin: "0px",
-        threshold: 0.1
+        threshold: 0.2
     };
 
     const observer = new IntersectionObserver((entries) => {
-        const [entry] = entries;
-        const target = entry.target;
+        entries.forEach((entry) => {
+            const target = entry.target;
 
-        if (entry.isIntersecting) {
-            const hash = target.id;
-            const currentNavigationItem = document.querySelector(`[href="#${hash}"]`);
+            if (entry.isIntersecting) {
+                const hash = target.dataset.anchor;
+                const currentNavigationItem = document.querySelector(`[href="#${hash}"]`);
 
-            window.location.hash = hash;
+                location.hash = hash;
 
-            if (currentNavigationItem) {
-                updateNavigationListProps(currentNavigationItem.parentElement);
+                if (currentNavigationItem) {
+                    updateNavigationListProps(currentNavigationItem.parentElement);
+                    updateNavigationCurrentItem(currentNavigationItem);
+                }
             }
-        }
+        });
     }, intersectionObserverConfig);
 
     const refreshObserver = () => {
@@ -58,35 +65,65 @@ export const tabs = () => {
         });
     };
 
-    refreshObserver();
+    let tabChanged = false;
+
+    if (hash) {
+        const currentSection = validSections.find((section) => section.dataset.anchor === hash);
+
+        if (currentSection) {
+            scrollTo(currentSection);
+            tabChanged = true;
+        }
+    } else {
+        const [firstNavigationItem] = navigationItems;
+        refreshObserver();
+        setTimeout(() => {
+            updateNavigationListProps(firstNavigationItem);
+            updateNavigationCurrentItem(firstNavigationItem);
+        }, 70);
+    }
 
     const handleTabClick = (e) => {
         e.preventDefault();
         const target = e.target;
         const hash = new URL(target.href).hash.slice(1);
-        const anchor = document.getElementById(hash);
+        const anchor = document.querySelector(`[data-anchor="${hash}"]`);
 
-        window.scrollTo({
-            top: anchor.getBoundingClientRect().top + window.scrollY - 100,
-        });
-        window.location.hash = hash;
+        observer.disconnect();
+
+        tabChanged = true;
+
+        scrollTo(anchor);
+
+        location.hash = hash;
 
         updateNavigationListProps(target);
-        observer.disconnect();
+        updateNavigationCurrentItem(target);
     };
 
+    // safari
     const handleBadgeTransitionEnd = () => {
-        const hash = window.location.hash;
-        const currentTarget = document.querySelector(`[href="${hash}"]`);
-
-        setTimeout(() => {
-            refreshObserver();
-        }, 200);
-        updateNavigationCurrentItem(currentTarget);
+        if (!scrollEndExist) {
+            setTimeout(refreshObserver, 300);
+        }
     };
+
+    if (scrollEndExist) {
+        window.addEventListener("scrollend", () => {
+            if (tabChanged) {
+                refreshObserver();
+                tabChanged = false;
+            }
+        });
+    }
 
     navigationBadge.addEventListener("transitionend", handleBadgeTransitionEnd);
     navigationItems.forEach((item) => {
         item.addEventListener("click", handleTabClick);
+    });
+
+    window.addEventListener('hashchange', function(event) {
+        event.preventDefault();
+        event.stopPropagation();
     });
 };

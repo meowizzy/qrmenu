@@ -6,6 +6,8 @@
     @media all and (min-width: 1280px) {
       border-radius: var(--radius-sm);
     }
+
+    @include bg-op(cover, center, no-repeat);
   }
 
   &  .container {
