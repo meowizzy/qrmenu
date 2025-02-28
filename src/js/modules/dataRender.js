@@ -5,7 +5,7 @@ import {getBanner, getCategories, getHeader, getProducts, renderError} from "./t
 export const dataRender = () => {
     const loader = document.querySelector(".loader");
     const root = document.querySelector(".root");
-    const companyId = location.pathname.slice(1);
+    const companyId = location.pathname.split("/").find((item) => !!item);
 
     const showRoot = () => {
         loader.classList.add("d-none");
