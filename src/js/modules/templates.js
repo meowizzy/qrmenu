@@ -1,3 +1,5 @@
+import {translate} from "../../localization";
+
 export const renderError = (msg, root) => {
     root.insertAdjacentHTML("beforeend", `
         <div class="error">
@@ -14,77 +16,77 @@ export const renderError = (msg, root) => {
 };
 
 export const getHeader = (name) => {
-    if (!name) return;
+    if (!name) return "";
 
     return `
-            <header class="header">
-                <div class="container">
-                    <h1 class="header__heading">${name}</h1>
-                </div>
-            </header>
-        `;
+        <header class="header">
+            <div class="container">
+                <h1 class="header__heading">${name}</h1>
+            </div>
+        </header>
+    `;
 };
 
 export const getBanner = ({ background, address, contactPhone, wifiPassword}) => {
-    const banner = !!background?.url && `
-            <div class="banner__pic" style="background-image: url(${background.url})"></div>
-        `;
+    const banner = !!background?.url ? `
+        <div class="banner__pic" style="background-image: url(${background.url})"></div>
+    ` : "";
 
-    const addressTemplate = !!address?.street && `
-            <div class="banner__contacts-item">
-                <span class="banner__contacts-icon">
-                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <use xlink:href="#location"/>
-                    </svg>
-                </span>
-                <div class="banner__contacts-value">
-                    <span>${address.street}</span>
-                </div>
+    const addressTemplate = !!address?.street ? `
+        <div class="banner__contacts-item">
+            <span class="banner__contacts-icon">
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <use xlink:href="#location"/>
+                </svg>
+            </span>
+            <div class="banner__contacts-value">
+                <span>${address.street}</span>
             </div>
-        `;
+        </div>
+    ` : "";
 
-    const wifiPasswordTemplate = !!wifiPassword && `
-            <div class="banner__contacts-item">
-                <span class="banner__contacts-icon">
-                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <use xlink:href="#wifi"/>
-                    </svg>
-                </span>
-                <div class="banner__contacts-value">
-                    <span>${wifiPassword}</span>
-                </div>
+    const wifiPasswordTemplate = !!wifiPassword ? `
+        <div class="banner__contacts-item">
+            <span class="banner__contacts-icon">
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <use xlink:href="#wifi"/>
+                </svg>
+            </span>
+            <div class="banner__contacts-value">
+                <span>${wifiPassword}</span>
             </div>
-        `;
+        </div>
+    ` : "";
 
-    const phoneTemplate = !!contactPhone && `
-            <div class="banner__contacts-item">
-                <span class="banner__contacts-icon">
-                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <use xlink:href="#phone"/>
-                    </svg>
-                </span>
-                <div class="banner__contacts-value">
-                    <a href="tel:+${contactPhone}">${contactPhone}</a>
-                </div>
+    const phoneTemplate = !!contactPhone ? `
+        <div class="banner__contacts-item">
+            <span class="banner__contacts-icon">
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <use xlink:href="#phone"/>
+                </svg>
+            </span>
+            <div class="banner__contacts-value">
+                <a href="tel:+${contactPhone.replace(/[^\d]/g,'')}">${contactPhone}</a>
             </div>
-        `;
+        </div>
+    ` : "";
 
     return `
-            <section id="banner" class="banner">
-                <div class="container">
-                    ${banner}
-                    <div class="banner__contacts">
-                        ${addressTemplate || ""}
-                        ${wifiPasswordTemplate || ""}
-                        ${phoneTemplate || ""}
-                    </div>
+        <section id="banner" class="banner">
+            <div class="container">
+                ${banner}
+                <div class="banner__contacts">
+                    ${addressTemplate}
+                    ${wifiPasswordTemplate}
+                    ${phoneTemplate}
                 </div>
-            </section>
-        `;
+            </div>
+        </section>
+    `;
 };
 
 export const getCategories = (categories) => {
-    if (!categories) return;
+    if (!categories) return "";
 
     const items = categories.map((item) => {
         return `
@@ -108,8 +110,14 @@ export const getCategories = (categories) => {
     `;
 };
 
+const getProductTitle = (title, cb) => {
+    if (!title) return "";
+
+    return cb(title);
+};
+
 export const getProducts = (categories, products) => {
-    if (!categories || !products) return;
+    if (!categories?.length && !products?.length) return "";
 
     const mappedCategories = categories.reduce((map, item) => {
         const hash = `#${item.id}_${item.name}`;
@@ -133,46 +141,73 @@ export const getProducts = (categories, products) => {
     mappedCategories.forEach((products, key) => {
         const [id, name] = key.split("_");
 
-        const sectionTitle = !!name && `
+        const sectionTitle = !!name ? `
             <h2 class="section__title">${name}</h2>
-        `;
+        ` : "";
 
         let items;
 
         if (products.length) {
             items = products.map((product) => {
-                const pic = !!product?.photo && `
-                <div class="list__card-pic">
-                    <img src="${product.photo.url}" alt="${product.photo.name}">
-                </div>
-            `;
+                const modalId = Math.random()*Date.now();
+                const noImageSvg = `
+                    <svg class="d-none" viewBox="0 0 64 64" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:2">
+                        <use xlink:href="#food"/>
+                    </svg>
+                `;
 
-                const title = !!product?.name && `
-                <div class="list__card-title">
-                    <span>${product.name}</span>
-                </div>
-            `;
+                const image = !!product?.photo ? `
+                    <img src="${product.photo.url}" alt="${product.photo.name}" onload="this.parentElement.classList.add('image-success');" onerror="this.parentElement.classList.add('image-error');">
+                    ${noImageSvg}
+                ` : noImageSvg;
 
-                const description = !!product?.description && `
-                <div class="list__card-desc">
-                    ${product.description}
-                </div>
-            `;
+                const pic = `
+                    <div class="list__card-pic" data-modal-target="productDescriptionModal-${modalId}">
+                        ${image}
+                    </div>
+                `;
 
-                const unit = !!product?.unit && `
-                <span class="list__card-weight">${product.unit}</span>
-            `;
+                const title = getProductTitle(product?.name, (title) => `
+                    <div class="list__card-title" data-modal-target="productDescriptionModal-${modalId}"> 
+                        <span>${title}</span>
+                    </div>
+                `);
+
+                const unit = getProductTitle(product?.unit, (unit) => `
+                    <span class="list__card-weight">${unit}</span>
+                `);
+
+                const description = `
+                    ${getProductTitle(product?.description, (description) => `
+                       <div class="list__card-desc">
+                            <span>${description}</span>
+                       </div> 
+                    `)}
+                    <div class="d-none">
+                        <div class="product-modal" data-modal-id="productDescriptionModal-${modalId}">
+                            ${getProductTitle(product?.name, (title) => `
+                               <div class="product-modal__title">
+                                    <span>${title}</span>
+                               </div> 
+                            `)}
+                            <div class="product-modal__units">
+                                
+                            </div> 
+                            <button class="lp-button primary product-modal__button" data-modal-close>${translate("buttonOk")}</button>   
+                        </div>
+                    </div>
+                `;
 
                 return `
-                <div class="list__card">
-                    ${pic || ""}
-                    <div class="list__card-bottom">
-                        ${title || ""}
-                        ${unit || ""}
-                        ${description || ""}
+                    <div class="list__card">
+                        ${pic}
+                        <div class="list__card-bottom">
+                            ${title}
+                            ${unit}
+                            ${description}
+                        </div>
                     </div>
-                </div>
-            `;
+                `;
             });
 
             items = items.join("");
@@ -185,7 +220,7 @@ export const getProducts = (categories, products) => {
                         </svg>
                     </div>
                     <div class="list__empty-title">
-                        <span>Будет скоро</span>
+                        <span>${translate("willBeSoon")}</span>
                     </div>
                 </div> 
             `;
@@ -194,7 +229,7 @@ export const getProducts = (categories, products) => {
         sections.push(`
             <section data-anchor="${id.slice(1)}" class="section">
                 <div class="container">
-                    ${sectionTitle || ""}
+                    ${sectionTitle}
                     <div class="list">
                         ${items}
                     </div>

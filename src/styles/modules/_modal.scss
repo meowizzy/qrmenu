@@ -91,10 +91,10 @@
     opacity: 0;
     transform: translateY(10px) scale(0.9);
     background-color: var(--color-white);
-    max-width: 600px;
+    max-width: 400px;
     width: 100%;
-    border-radius: var(--radius-sm);
-    padding: 40px;
+    border-radius: var(--radius-xs);
+    padding: 20px 30px;
     position: relative;
   }
   &.opened {

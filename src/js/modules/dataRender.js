@@ -1,6 +1,8 @@
 import { tabs } from "./tabs";
 import { fetchCompanyCategories, fetchCompanyDetails, fetchCompanyProducts } from "../api";
 import {getBanner, getCategories, getHeader, getProducts, renderError} from "./templates";
+import {modal} from "./modal";
+import {translate} from "../../localization";
 
 export const dataRender = () => {
     const loader = document.querySelector(".loader");
@@ -13,7 +15,7 @@ export const dataRender = () => {
     };
 
     if (!companyId) {
-        renderError("Не указан идентификатор ресторана", root);
+        renderError(translate("errors.restaurantIdNotProvided"), root);
         showRoot();
 
         return;
@@ -28,8 +30,6 @@ export const dataRender = () => {
         } = props;
 
         root.innerHTML = "";
-
-        // getProducts(categories, products);
 
         root.insertAdjacentHTML("beforeend", `
             ${getHeader(companyName)}
@@ -69,6 +69,7 @@ export const dataRender = () => {
                 });
 
                 setTimeout(tabs);
+                setTimeout(modal);
             } else {
                 const message = details?.detail;
                 throw new Error(message);

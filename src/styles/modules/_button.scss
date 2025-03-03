@@ -1,16 +1,16 @@
 .lp-button {
-  padding: 16px 24px;
-  border-radius: var(--radius-md);
+  padding: 8px 12px;
+  border-radius: var(--radius-xs);
   cursor: pointer;
   position: relative;
   overflow: hidden;
-  min-height: 56px;
+  min-height: 36px;
   display: inline-flex;
   justify-content: center;
   align-items: center;
   text-decoration: none;
   font-family: var(--primary-font);
-  font-size: 16px;
+  font-size: 14px;
 
   &:before {
     content: "";

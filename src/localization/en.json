@@ -1,1 +1,7 @@
-{}
+{
+  "willBeSoon": "Will be soon",
+  "buttonOk": "Okay \uD83D\uDC4C",
+  "errors": {
+    "restaurantIdNotProvided": "Restaurant ID not provided"
+  }
+}

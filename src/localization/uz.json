@@ -1,1 +1,7 @@
-{}
+{
+  "willBeSoon": "Tez orada bo'ladi",
+  "buttonOk": "Tushunarli \uD83D\uDC4C",
+  "errors": {
+    "restaurantIdNotProvided": "Restoran identifikatori taqdim etilmagan"
+  }
+}

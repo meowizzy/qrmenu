@@ -47,13 +47,39 @@
     }
   }
 
+  @keyframes rotating {
+    0% {
+      transform: translate(-50%, -50%) rotate(0deg);
+    }
+
+    100% {
+      transform: translate(-50%, -50%) rotate(360deg);
+    }
+  }
+
   &__card-pic {
+    $self: &;
+
     overflow: hidden;
     position: relative;
     padding-top: 55.2%;
     border-radius: var(--radius-sm);
     background-color: var(--color-light-gray);
     margin-bottom: 12px;
+    cursor: pointer;
+
+    &:before {
+      @include pseudo();
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      border: 4px solid var(--color-primary);
+      border-bottom: 4px solid transparent;
+      animation: rotating .5s linear infinite;
+    }
 
     img {
       width: 100%;
@@ -64,6 +90,38 @@
       left: 0;
       right: 0;
       bottom: 0;
+      transition: var(--transition);
+    }
+
+    svg {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 100px;
+      height: 100px;
+      color: var(--color-gray);
+    }
+
+    img, svg {
+      pointer-events: none;
+    }
+
+    &.image-error {
+
+      img {
+        display: none;
+      }
+
+      svg {
+        display: block !important;
+      }
+    }
+
+    &.image-error, &.image-success, &.skeleton {
+      &:before {
+        display: none;
+      }
     }
   }
 
@@ -121,5 +179,20 @@
         }
       }
     }
+  }
+}
+
+.product-modal {
+  &__title {
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 4px;
+  }
+
+  &__units {}
+
+  &__button {
+    width: 100%;
+    margin-top: 20px;
   }
 }

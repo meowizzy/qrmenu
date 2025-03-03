@@ -1,1 +1,7 @@
-{}
+{
+  "willBeSoon": "Будет скоро",
+  "buttonOk": "Хорошо \uD83D\uDC4C",
+  "errors": {
+    "restaurantIdNotProvided": "Не указан идентификатор ресторана"
+  }
+}
