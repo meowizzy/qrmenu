@@ -28,7 +28,7 @@ export const tabs = () => {
             height
         } = getElementDimensions(item);
 
-        navigationRoot.scrollLeft = x;
+        navigationRoot.scrollLeft = x - navigationRoot.offsetWidth / 2 + width / 2;
 
         navigationRoot.style.setProperty("--x", `${x}px`);
         navigationRoot.style.setProperty("--width", `${width}px`);
