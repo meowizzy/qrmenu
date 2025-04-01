@@ -1,4 +1,4 @@
-import {translate} from "../../localization";
+import { translate } from "../../localization";
 
 export const renderError = (msg, root) => {
     root.insertAdjacentHTML("beforeend", `
@@ -28,11 +28,11 @@ export const getHeader = (name) => {
 };
 
 export const getBanner = ({ background, address, contactPhone, wifiPassword}) => {
-    const banner = !!background?.url ? `
+    const banner = background?.url ? `
         <div class="banner__pic" style="background-image: url(${background.url})"></div>
     ` : "";
 
-    const addressTemplate = !!address?.street ? `
+    const addressTemplate = address?.street ? `
         <div class="banner__contacts-item">
             <span class="banner__contacts-icon">
                 <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -45,7 +45,7 @@ export const getBanner = ({ background, address, contactPhone, wifiPassword}) =>
         </div>
     ` : "";
 
-    const wifiPasswordTemplate = !!wifiPassword ? `
+    const wifiPasswordTemplate = wifiPassword ? `
         <div class="banner__contacts-item">
             <span class="banner__contacts-icon">
                 <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -58,7 +58,7 @@ export const getBanner = ({ background, address, contactPhone, wifiPassword}) =>
         </div>
     ` : "";
 
-    const phoneTemplate = !!contactPhone ? `
+    const phoneTemplate = contactPhone ? `
         <div class="banner__contacts-item">
             <span class="banner__contacts-icon">
                 <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -120,7 +120,7 @@ export const getProducts = (categories, products) => {
     if (!categories?.length && !products?.length) return "";
 
     const mappedCategories = categories.reduce((map, item) => {
-        const hash = `#${item.id}_${item.name}`;
+        const hash = [item.id, item.name];
 
         map.set(hash, []);
 
@@ -139,7 +139,7 @@ export const getProducts = (categories, products) => {
     const sections = [];
 
     mappedCategories.forEach((products, key) => {
-        const [id, name] = key.split("_");
+        const [id, name] = key;
 
         const sectionTitle = !!name ? `
             <h2 class="section__title">${name}</h2>
@@ -156,7 +156,7 @@ export const getProducts = (categories, products) => {
                     </svg>
                 `;
 
-                const image = !!product?.photo ? `
+                const image = product?.photo ? `
                     <img src="${product.photo.url}" alt="${product.photo.name}" onload="this.parentElement.classList.add('image-success');" onerror="this.parentElement.classList.add('image-error');">
                     ${noImageSvg}
                 ` : noImageSvg;
@@ -227,7 +227,7 @@ export const getProducts = (categories, products) => {
         }
 
         sections.push(`
-            <section data-anchor="${id.slice(1)}" class="section">
+            <section data-anchor="${id}" class="section">
                 <div class="container">
                     ${sectionTitle}
                     <div class="list">

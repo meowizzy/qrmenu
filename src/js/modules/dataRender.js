@@ -1,8 +1,8 @@
 import { tabs } from "./tabs";
 import { fetchCompanyCategories, fetchCompanyDetails, fetchCompanyProducts } from "../api";
-import {getBanner, getCategories, getHeader, getProducts, renderError} from "./templates";
-import {modal} from "./modal";
-import {translate} from "../../localization";
+import { getBanner, getCategories, getHeader, getProducts, renderError } from "./templates";
+import { modal } from "./modal";
+import { translate } from "../../localization";
 
 export const dataRender = () => {
     const loader = document.querySelector(".loader");
